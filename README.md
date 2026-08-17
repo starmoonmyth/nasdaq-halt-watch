@@ -1,5 +1,7 @@
 # Nasdaq Halt Watch
 
+中文说明：[README.zh-CN.md](README.zh-CN.md)
+
 An open-source monitor for Nasdaq Trader's official trading-halt RSS feed.
 
 It polls no more than once per minute, normalizes halt/resumption records, and
