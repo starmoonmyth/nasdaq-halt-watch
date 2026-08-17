@@ -32,3 +32,20 @@ the maintainer-support application materials.
 python -m pip install -e '.[dev]'
 pytest
 ```
+
+## Minimal usage
+
+```python
+from datetime import UTC, datetime
+
+from nasdaq_halt_watch import HaltMonitor
+
+monitor = HaltMonitor()
+events = monitor.poll(now=datetime.now(UTC))
+for event in events:
+    print(event.state, event.record.symbol, event.record.reason_code)
+```
+
+Applications should persist `event.event_id` before delivering notifications,
+and should treat the Nasdaq feed as an official event source rather than a
+replacement for consolidated market data.
